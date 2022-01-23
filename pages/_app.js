@@ -8,7 +8,7 @@ import Input from './input'
 function MyApp() {
   const [secretWord, setSecretWord] = useState([]);
   const [guess, setGuess] = useState([])
-  const [turn, setTurn] = useState(0)
+//  const [turn, setTurn] = useState(0)
   const formOneSubmit = (e) => {
     e.preventDefault();
     document.form1.reset();
@@ -21,7 +21,7 @@ function MyApp() {
   }
 
   useEffect(() => {
-    setSecretWord((data[Math.floor(Math.random() * data.length)]).split(""))
+    setSecretWord((data[Math.floor(Math.random() * data.length)]))
   }, []);
 
 
@@ -35,10 +35,10 @@ function MyApp() {
     <Input id={3} setGuessArray={setGuessArr}/>
     <Input id={4} setGuessArray={setGuessArr}/>
     <button type="submit" onClick= {(e) => {
-      setGuess(guessArr)
-      console.log(turn)
+      setGuess(guessArr.join())
+      //console.log(turn)
       console.log(secretWord)
-      setTurn(turn+1)
+      //setTurn(turn+1)
     }}>guess</button>
     </form>
     <button onClick={(e) => {
@@ -46,10 +46,9 @@ function MyApp() {
       document.form1.reset();
       setGuess("");
       guessArr.splice(0, guessArr.length);
-      setTurn(0)
+      //setTurn(0)
       }}>new word</button>
     <div><Result answer={secretWord} guess={guess}/></div>
-    <div>{guessArr.map((itemguess) => <li>{itemguess}</li>)}</div>
     </>
   )
 }
