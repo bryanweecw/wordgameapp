@@ -6,13 +6,13 @@ const GuessGrid = ({indicator, activeGuess, correctans}) => {
         n++
         switch(ele){
             case "T":
-                return <plaintext class="correct">{x}</plaintext>
+                return <plaintext className="correct">{x}</plaintext>
             case "F":
                 if (y.includes(x)){
-                    return <plaintext class="halfwrong">{x}</plaintext> 
+                    return <plaintext className="halfwrong">{x}</plaintext> 
                 }
                 else{
-                    return <plaintext class="wrong">{x}</plaintext>
+                    return <plaintext className="wrong">{x}</plaintext>
                 }
         }
     }))

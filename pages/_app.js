@@ -61,7 +61,7 @@ function MyApp() {
     {secretWord}
     <form onSubmit = {submitGuess} name="form1">
     {[...Array(secretWord.length)].map((_,index)=>index+1).map((item,index)=>{
-      return (<input type="text" onChange={(e)=>updateGuess(index,e.target.value)} maxLength="1" className='block'/>)
+      return (<input key={index} type="text" onChange={(e)=>updateGuess(index,e.target.value)} maxLength="1" className='block'/>)
     })} 
       <button type="submit">guess</button>
     </form>
@@ -78,7 +78,7 @@ function MyApp() {
 
     <div>
     {prevGuess.map((gs)=>{
-      return <div>Previous Guess was {gs} || {gs.map((item,index) => {
+      return <div key={index}>Previous Guess was {gs} || {gs.map((item,index) => {
         return item === secretWord[index] ? "T" : "F"
       } ).join(" ")} || <GuessGrid correctans={secretWord} activeGuess={gs} indicator={gs.map((item,index) => {
         return item === secretWord[index] ? "T" : "F"
