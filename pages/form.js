@@ -50,7 +50,7 @@ const Form = (props) => {
                 }}>Reset</button>
         </form>
             {attemptState.map((gs,i)=>{
-                return <div><GuessGrid key={gs} setGuessGridState={setGuessGridState} guessGridState={guessGridState} correctans={secretWord} setCorrectAns={setSecretWord} activeGuess={gs}/></div>
+                return <div key={gs}><GuessGrid setGuessGridState={setGuessGridState} guessGridState={guessGridState} correctans={secretWord} setCorrectAns={setSecretWord} activeGuess={gs}/></div>
           })} 
               <button onClick={(e) => {
       setSecretWord(data[Math.floor(Math.random() * data.length)]);
