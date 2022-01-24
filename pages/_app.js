@@ -2,53 +2,48 @@ import '../styles/globals.css';
 import data from '../../test1.json';
 import React, { useEffect, useState, useRef } from "react";
 import Result from './result';
-import Input from './input'
-
 
 function MyApp() {
   const [secretWord, setSecretWord] = useState([]);
   const [guess, setGuess] = useState([])
-//  const [turn, setTurn] = useState(0)
-  const formOneSubmit = (e) => {
-    e.preventDefault();
-    document.form1.reset();
-  }
-
-  const guessArr = []
-
-  const setGuessArr = (x, id) => {
-    guessArr[id] = x;
-  }
-
+  const [turn, setTurn] = useState(0)
   useEffect(() => {
     setSecretWord((data[Math.floor(Math.random() * data.length)]))
   }, []);
+
+  const formOneSubmit = (e) => {
+    e.preventDefault();
+    let elements = document.getElementsByName("userguess");
+    let workingArr = []
+    for(let i = 0; i < elements.length; i++){
+      workingArr.push(elements[i].value)
+    }
+    console.log(workingArr)
+    setGuess(workingArr)
+    console.log(guess)
+    document.form1.reset();
+    setTurn(turn+1)
+  }
 
 
   return(
     <>
     {secretWord}
     <form onSubmit = {formOneSubmit} name="form1">
-    <Input id={0} setGuessArray={setGuessArr}/>
-    <Input id={1} setGuessArray={setGuessArr}/>
-    <Input id={2} setGuessArray={setGuessArr}/>
-    <Input id={3} setGuessArray={setGuessArr}/>
-    <Input id={4} setGuessArray={setGuessArr}/>
-    <button type="submit" onClick= {(e) => {
-      setGuess(guessArr.join())
-      //console.log(turn)
-      console.log(secretWord)
-      //setTurn(turn+1)
-    }}>guess</button>
+      <input name="userguess" type="text" maxLength="1" className='block' required/>
+      <input name="userguess" type="text" maxLength="1" className='block' required/>
+      <input name="userguess" type="text" maxLength="1" className='block' required/>
+      <input name="userguess" type="text" maxLength="1" className='block' required/>
+      <input name="userguess" type="text" maxLength="1" className='block' required/>
+      <button type="submit">guess</button>
     </form>
     <button onClick={(e) => {
       setSecretWord(data[Math.floor(Math.random() * data.length)]);
       document.form1.reset();
-      setGuess("");
-      guessArr.splice(0, guessArr.length);
-      //setTurn(0)
+      setTurn(0);
+      setGuess([]);
       }}>new word</button>
-    <div><Result answer={secretWord} guess={guess}/></div>
+    <div><Result answer={secretWord} guess={guess}/>{turn}{guess.length}</div>
     </>
   )
 }
