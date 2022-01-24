@@ -18,10 +18,13 @@ function MyApp() {
     setSecretWord(newWord.split("")); //turn string into array
   }, []);
 
+  console.log(secretWord)
+
   return(
     <div className="center">
       <h1>Bryan&apos;s Wordle Clone</h1>
-      <p>this took longer than it should have</p>
+      <p>this took longer than it should have.</p>
+      <p>note: reset does not change the word, it only removes past attempts and clears the text input. check console for answer.</p>
     <Form secretWord={secretWord} setSecretWord={setSecretWord} />
     </div>
   )

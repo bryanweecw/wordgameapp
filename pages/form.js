@@ -45,6 +45,7 @@ const Form = (props) => {
             <button type="submit">Submit</button>
             <button type="button" onClick={(e) => {
                 document.form1.reset();
+                handleAttemptChange(e);
                 setAttemptState([]);
                 console.log(attemptState.length)
                 }}>Reset</button>
