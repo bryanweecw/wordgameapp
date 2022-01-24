@@ -1,5 +1,5 @@
 import '../styles/globals.css';
-import data from '../../test1.json';
+import data from './test1.json';
 import React, { useEffect, useState, useRef } from "react";
 import Result from './result';
 
