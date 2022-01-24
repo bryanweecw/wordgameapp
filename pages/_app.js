@@ -20,7 +20,7 @@ function MyApp() {
 
   return(
     <div className="center">
-      <h1>Bryan`&apos;`s Wordle Clone</h1>
+      <h1>Bryan&apos;s Wordle Clone</h1>
       <p>this took longer than it should have</p>
     <Form secretWord={secretWord} setSecretWord={setSecretWord} />
     </div>
