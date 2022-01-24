@@ -49,8 +49,8 @@ const Form = (props) => {
                 console.log(attemptState.length)
                 }}>Reset</button>
         </form>
-            {attemptState.map((gs)=>{
-                return <div><GuessGrid setGuessGridState={setGuessGridState} guessGridState={guessGridState} correctans={secretWord} setCorrectAns={setSecretWord} activeGuess={gs}/></div>
+            {attemptState.map((gs,i)=>{
+                return <div><GuessGrid key={gs} setGuessGridState={setGuessGridState} guessGridState={guessGridState} correctans={secretWord} setCorrectAns={setSecretWord} activeGuess={gs}/></div>
           })} 
               <button onClick={(e) => {
       setSecretWord(data[Math.floor(Math.random() * data.length)]);
