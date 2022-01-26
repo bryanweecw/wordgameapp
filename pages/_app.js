@@ -1,8 +1,6 @@
 import '../styles/globals.css';
 import data from './test1.json';
 import React, { useEffect, useState, useRef } from "react";
-import GuessGrid from './guessgrid';
-import GameInputs from './gameinput';
 import Form from './form'
 
 function MyApp() {
